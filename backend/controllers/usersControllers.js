@@ -5,7 +5,9 @@ const fs = require('fs').promises
 const getUsers = asyncHandler(async (req, res) => {
     try {
         const filePath = path.join(__dirname, '../data/users.json');
+        console.log('Attempting to read users.json from:', filePath);
         const data = await fs.readFile(filePath, 'utf8');
+        console.log('Successfully read users.json');
         res.json(JSON.parse(data));
     } catch (error) {
         res.status(500)
@@ -17,12 +19,14 @@ const authenticateUser = asyncHandler(async (req, res) => {
     try {
         const { username, password } = req.body;
         const filePath = path.join(__dirname, '../data/users.json');
+        console.log('Attempting to authenticate user:', username);
         const data = await fs.readFile(filePath, 'utf8')
         const users = JSON.parse(data);
 
         const user = users.find(u => u.username === username && u.password === password);
 
         if (!user) {
+            console.log('Authentication failed: invalid credentials');
             return res.status(401).json({ error: 'Invalid username and/or password' });
         }
 
@@ -30,6 +34,7 @@ const authenticateUser = asyncHandler(async (req, res) => {
             username: user.username,
             recommendationId: user.recommendationId
         };
+        console.log('User authenticated:', username);
 
         res.json({
             message: 'Logged in!',

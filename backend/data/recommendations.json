@@ -1,0 +1,18 @@
+[
+    {
+        "recommendationId": "66c0baa3a1526eb1715fb8bd",
+        "recommendations": [
+            "Eat more vegetables.",
+            "Include protein in every meal.",
+            "Stay hydrated by drinking plenty of water."
+        ]
+    },
+    {
+        "recommendationId": "66c0bedda1526eb1715fb8bf",
+        "recommendations": [
+            "Exercise regularly for at least 30 minutes a day.",
+            "Reduce sugar intake.",
+            "Get enough sleep, at least 7-8 hours per night."
+        ]
+    }
+]

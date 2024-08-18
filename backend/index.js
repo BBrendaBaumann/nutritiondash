@@ -3,7 +3,7 @@ const mongoose = require('mongoose')
 require('dotenv').config()
 
 const MONGO_URL = process.env.MONGO_URL
-const PORT = process.env.PORT
+const PORT = process.env.PORT || 5000;
 
 mongoose.set('strictQuery', false)
 mongoose.connect(MONGO_URL)
